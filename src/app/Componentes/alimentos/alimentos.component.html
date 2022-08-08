@@ -1,0 +1,90 @@
+
+    <div class="container">
+      
+
+  
+<h1 style="text-align:center ;" >Alimentos</h1>
+
+    <div class="row">
+      <div class="col-lg-6"  style="background-color:#aaa">
+       
+        <form [formGroup]="form" (ngSubmit)="agregarAlimento()">
+            <div class="input-group mb-3">
+                <span class="input-group-text"></span>
+                <input formControlName="NombreAlimento" type="text" class="form-control" placeholder="Alimento">
+            </div>
+            <br>
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon1">$</span>
+                <input formControlName="Precio" type="text" class="form-control" placeholder="Precio">
+            </div>
+            <br>
+          <h2>Agregar ingredientes</h2>
+            <div class="input-group mb-3">
+              <span class="input-group-text"></span>
+              <input formControlName="Ingredienteuno" type="text" class="form-control" placeholder="Ingrediente uno">
+          </div>
+          <br>
+          <div class="input-group mb-3">
+            <span class="input-group-text"></span>
+            <input formControlName="Ingredientedos" type="text" class="form-control" placeholder="Ingrediente dos">
+        </div>
+        <br>
+        <div class="input-group mb-3">
+          <span class="input-group-text"></span>
+          <input formControlName="Ingredientetres" type="text" class="form-control" placeholder="Ingrediente tres">
+      </div>
+      <br>
+          <div class="input-group mb-3">
+            <span class="input-group-text"></span>
+            <input formControlName="Ingredientecuatro" type="text" class="form-control" placeholder="Ingrediente cuatro">
+        </div>
+        <br>
+        <div class="input-group mb-3">
+          <span class="input-group-text"></span>
+          <input formControlName="Ingredientecinco" type="text" class="form-control" placeholder="Ingrediente cinco">
+      </div>
+  <br>
+      <button [disabled]="this.form.invalid" type="submit" class="btn btn-success btn-lg">Agregar</button>
+      <br>
+        </form>
+      </div>
+
+
+      <div class="col-lg-6"  style="background-color:rgb(187, 187, 187)">
+        <h1>Lista de alimentos</h1> 
+        <table class="table">
+            <thead>
+              <tr>
+                
+                <th scope="col">Alimento</th>
+                <th scope="col">Precio</th>
+                <th></th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let Alimento of listAlimentos">
+                
+                <td>{{Alimento.nombreAlimentos}}</td>
+                <td>{{Alimento.precio}}</td>
+                <td>
+                  <app-modal [InputIdalimentos]="IdAlimentos"></app-modal>
+                </td>
+               
+                <td>
+                  <i (click)="EliminaAlimento(Alimento.idalimentos,Alimento.nombreAlimentos)" class="fa-solid fa-trash-can text-danger"></i>
+                </td>
+                
+              </tr>
+              
+              
+            </tbody>
+          </table>
+        
+      </div>
+        
+    </div>
+    
+  </div>
+ 
